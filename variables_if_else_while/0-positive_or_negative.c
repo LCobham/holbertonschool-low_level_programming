@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-/* 
+
+/**
  * main - generate a random int and prints it's sign
  *
  * Return: 0 if no errors
@@ -17,10 +18,10 @@ int main(void)
 		{
 			printf("%d is positive\n", n);
 		}
-	       	else if (n == 0)
+		else if	(n == 0)
 		{
 			printf("%d is zero\n", n);
-		} 
+		}
 		else
 		{
 			printf("%d is negative\n", n);
