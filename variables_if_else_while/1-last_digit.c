@@ -22,11 +22,11 @@ int main(void)
 	}
 	else if (!mod)
 	{
-		printf("Last digit of %d is %d and is zero\n", n, mod);
+		printf("Last digit of %d is %d and is 0\n", n, mod);
 	}
 	else
 	{
-		printf("Last digit of %d if %d and is less than 6 and not zero\n", n, mod);
+		printf("Last digit of %d if %d and is less than 6 and not 0\n", n, mod);
 	}
 	return (0);
 }
