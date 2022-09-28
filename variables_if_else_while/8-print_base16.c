@@ -13,16 +13,16 @@ int main(void)
 
 	while (i < 58)
 	{
-		i++;
 		putchar(i);
 		if (i == 57)
 		{
 			while (j < 103)
 			{
-				j++;
 				putchar(j);
+				j++;
 			}
 		}
+		i++;
 	}
 	putchar(10);
 	return (0);
