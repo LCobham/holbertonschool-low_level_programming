@@ -8,16 +8,18 @@
 
 int main(void)
 {
-	int lower;
-	int upper;
+	int lower = 97;
+	int upper = 65;
 
-	for (lower = 97; lower <= 122; lower++)
+	while (lower < 123)
 	{
 		putchar(lower);
+		lower++;
 	}
-	for (upper = 65; upper <= 90; upper++)
+	while (upper < 91)
 	{
 		putchar(upper);
+		upper++;
 	}
 	putchar(10);
 	return (0);

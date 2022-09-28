@@ -8,16 +8,19 @@
 
 int main(void)
 {
-	int i;
+	int i = 48;
+	int j = 97;
 
-	for (i = 48; i < 58; i++)
+	while (i < 58)
 	{
+		i++;
 		putchar(i);
 		if (i == 57)
 		{
-			for (i = 97; i < 103; i++)
+			while (j < 103)
 			{
-				putchar(i);
+				j++;
+				putchar(j);
 			}
 		}
 	}

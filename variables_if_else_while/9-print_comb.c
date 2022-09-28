@@ -8,9 +8,9 @@
 
 int main(void)
 {
-	int i;
+	int i = 48;
 
-	for (i = 48; i < 58; i++)
+	while (i < 58)
 	{
 		putchar(i);
 
@@ -20,6 +20,7 @@ int main(void)
 			putchar(32);
 		}
 
+		i++;
 	}
 	putchar(10);
 	return (0);
