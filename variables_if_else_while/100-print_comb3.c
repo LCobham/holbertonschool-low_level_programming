@@ -1,20 +1,21 @@
 #include <stdio.h>
 
 /**
- * main - print numbers from 0 to 9
+ * main - print all combinations of two digits
  *
  * Return: 0 if no errors
  */
 
 int main(void)
 {
-	int i;
+	int i = 48;
 	int j;
-	int counter = 0;
+	int counter = 48;
 
-	for (i = 48; i < 58; i++, counter++)
+	while (i < 58)
 	{
-		for (j = 49; j < 58; j++)
+		j = 48;
+		while (j < 58)
 		{
 			if (i != j)
 			{
@@ -22,11 +23,20 @@ int main(void)
 				{
 					putchar(i);
 					putchar(j);
-					putchar(44);
-					putchar(32);
+
+					if (i != 56 || j != 57)
+					{
+						putchar(44);
+						putchar(32);
+					}
 				}
 			}
+
+			j++;
 		}
+
+		i++;
+		counter++;
 	}
 	putchar(10);
 	return (0);
