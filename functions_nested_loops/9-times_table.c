@@ -8,7 +8,7 @@
 void times_table(void)
 {
 	int i = 0;
-	int j, mult;
+	int j, mult, nxt;
 
 	while (i < 10)
 	{
@@ -16,26 +16,34 @@ void times_table(void)
 		while (j < 10)
 		{
 			mult = i * j;
-			if (mult < 10)
-			{
-				_putchar(mult + '0');
-			}
-			else
+			nxt = i * (j + 1);
+
+			if (mult >= 10)
 			{
 				_putchar(mult / 10 + '0');
 				_putchar(mult % 10 + '0');
 			}
-
-			if (j != 9)
+			else
 			{
-				_putchar(',');
-				_putchar(' ');
-				_putchar(' ');
+				_putchar(mult + '0');
 			}
 
+			if (j == 9)
+			{
+				_putchar('\n');
+				j++;
+				continue;
+			}
+
+			_putchar(',');
+			_putchar(' ');
+
+			if (nxt < 10)
+			{
+				_putchar(' ');
+			}
 			j++;
 		}
-		_putchar('\n');
 		i++;
 	}
 }
