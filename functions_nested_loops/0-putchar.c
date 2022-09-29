@@ -1,5 +1,4 @@
 #include <unistd.h>
-
 int _putchar(char c);
 
 /**
@@ -20,15 +19,4 @@ int main(void)
 
 	_putchar('\n');
 	return (0);
-}
-
-/**
- * _putchar - prints character
- * @c: char thatgets printed
- *
- * Return: ascii num of c?
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
 }
