@@ -8,9 +8,9 @@
 
 int main(void)
 {
-	int i = 48;
-	int j, m ,n;
+	int i, j, m, n;
 
+	i = 48;
 	while (i < 58)
 	{
 		j = 48;
@@ -29,25 +29,20 @@ int main(void)
 						putchar(32);
 						putchar(m);
 						putchar(n);
-						
-						if (i == 57 && j == 56 && m == 57 && n == 57)
+						if (i == 57 && m == 57 && n == 57 && j == 56)
 						{
 							n++;
 							continue;
 						}
-
 						putchar(44);
 						putchar(32);
 					}
-					
 					n++;
 				}
 				m++;
-
 			}
 			j++;
 		}
-
 		i++;
 	}
 	putchar(10);
