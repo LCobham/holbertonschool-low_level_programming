@@ -1,5 +1,4 @@
-#include <unistd.h>
-int _putchar(char c);
+#include "main.h"
 
 /**
  * main - prints "_putchar"
