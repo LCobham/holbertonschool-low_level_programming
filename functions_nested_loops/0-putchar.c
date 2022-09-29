@@ -1,13 +1,12 @@
 #include <unistd.h>
 
+int _putchar(char c);
+
 /**
  * main - prints "_putchar"
  *
  * Return: 0 if success
  */
-
-int _putchar(char c);
-
 int main(void)
 {
 	_putchar('_');
@@ -23,7 +22,12 @@ int main(void)
 	return (0);
 }
 
-
+/**
+ * _putchar - prints character
+ * @c: char thatgets printed
+ *
+ * Return: ascii num of c?
+ */
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
