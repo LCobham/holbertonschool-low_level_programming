@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * natural - prints the sum of all multiples of 3 & 5 below 1024
  *
@@ -18,11 +19,5 @@ void natural(void)
 
 		i++;
 	}
-	_putchar(count / 100000 + '0');
-	_putchar((count % 100000) / 10000 + '0');
-	_putchar((count % 10000) / 1000 + '0');
-	_putchar((count % 1000) / 100 + '0');
-	_putchar((count % 100) / 10 + '0');
-	_putchar((count % 10) + '0');
-	_putchar('\n');
+	printf("%d\n", count);
 }
