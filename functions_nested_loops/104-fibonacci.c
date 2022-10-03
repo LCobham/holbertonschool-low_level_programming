@@ -8,9 +8,8 @@
 int main(void)
 {
 	unsigned long i, j, first_half_j, second_half_j, first_half_i, second_half_i;
-	int count;
+	int count = 1;
 
-	count = 1;
 	i = 1;
 	j = 2;
 	printf("%lu, ", i);
@@ -29,7 +28,10 @@ int main(void)
 			if (count != 97)
 				printf(", ");
 			first_half_j += first_half_i;
-			second_half_j = (second_half_j + second_half_i) % 10000000000;
+			second_half_j = second_half_j + second_half_i;
+			if (second_half_j / 10000000000 > 0)
+				first_half_j++;
+			second_half_j = second_half_j % 10000000000;
 			first_half_i = first_half_j - first_half_i;
 			second_half_i = second_half_j - second_half_i;
 			count++;
@@ -44,5 +46,4 @@ int main(void)
 	}
 	printf("\n");
 	return (0);
-
 }
