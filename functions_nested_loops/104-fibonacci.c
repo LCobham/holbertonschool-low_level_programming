@@ -7,7 +7,7 @@
 
 int main(void)
 {
-	unsigned long i, j, first_half_j, second_half_j, first_half_i, second_half_i, res1, res2;
+	unsigned long i, j, first_half_j, second_half_j, first_half_i, second_half_i;
 	int count;
 
 	count = 2;
