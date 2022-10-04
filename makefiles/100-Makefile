@@ -11,6 +11,11 @@ $(NAME): $(OBJ)
 m.h: 
 re: oclean all
 
+.PHONY: clean
 clean: ; $(RM) *~ $(NAME)
+
+.PHONY: oclean
 oclean: ; $(RM) $(OBJ)
+
+.PHONY: fclean
 fclean: clean oclean
