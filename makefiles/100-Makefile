@@ -8,7 +8,8 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) -o $@ $^
-m.h: 
+
+:m.h 
 re: oclean all
 
 .PHONY: clean
