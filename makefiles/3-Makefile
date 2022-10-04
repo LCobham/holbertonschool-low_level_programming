@@ -4,7 +4,7 @@ OBJ = $(patsubst %c,%o,$(SRC))
 NAME = school
 RM = rm -f
 
-all: $(NAME)
+all: $(OBJ)
 
 $(NAME): $(OBJ)
 	$(CC) -o $@ $^
