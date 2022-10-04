@@ -7,7 +7,9 @@ OBJ = $(patsubst %c,%o,$(SRC))
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) -o $@ $<
+	$(CC) -o $(NAME) $(OBJ)
 
 $(OBJ): $(SRC)
 	$(CC) -c -o $@ $<
+
+$(SRC): m.h
