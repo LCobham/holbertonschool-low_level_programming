@@ -5,11 +5,4 @@ OBJ = $(patsubst %c,%o,$(SRC))
 
 
 all: $(NAME)
-
-$(NAME): $(OBJ)
-	$(CC) -o $(NAME) $(OBJ)
-
-$(OBJ): $(SRC)
-	$(CC) -c -o $@ $<
-
-$(SRC): m.h
+	$(CC) $(OBJ) -o $(NAME)
