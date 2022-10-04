@@ -12,11 +12,8 @@ $(NAME): $(OBJ)
 $(OBJ): $(SRC)
 	$(CC) -c $^
 
-re: $(SRC)
+re: $(SRC); touch $^
 
 clean: ; $(RM) *~ $(NAME)
 oclean: ; $(RM) $(OBJ)
 fclean: ; $(RM) *~ $(NAME) $(OBJ)
-
-re: $(SRC); touch $^
-
