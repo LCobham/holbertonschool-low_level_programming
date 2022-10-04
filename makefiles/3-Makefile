@@ -4,15 +4,15 @@ OBJ = $(patsubst %c,%o,$(SRC))
 NAME = school
 RM = rm -f
 
-all: $(OBJ)
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) -o $@ $^
 
-$(OBJ): $(SRC)
-	$(CC) -c $^
+%.o: %.c
+	$(CC) -c $<
 
-re: $(SRC); touch $^
+re: oclean all
 
 clean: ; $(RM) *~ $(NAME)
 oclean: ; $(RM) $(OBJ)
