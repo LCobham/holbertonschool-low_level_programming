@@ -10,10 +10,8 @@ int power_of(int a, int b);
 
 void print_number(int n)
 {
-	unsigned i, digits;
+	unsigned int i, digits;
 
-	if (n < -2147483648 || n >  2147483647)
-		return;
 	if (n < 0)
 	{
 		n *= -1;
