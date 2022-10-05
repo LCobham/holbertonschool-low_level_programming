@@ -17,7 +17,7 @@ int main(void)
 		target /= 2;
 		last = 2;
 	}
-	for (i = 3; i <= target / 2 + 1; i += 2)
+	for (i = 3; i <= target; i += 2)
 	while (target % i == 0)
 	{
 		target /= i;
