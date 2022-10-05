@@ -28,6 +28,12 @@ int main(void)
 	return (0);
 }
 
+/**
+ * is_prime - checks if a number is prime or not
+ *@n: number to be checked
+ *Return: 1 if is prime, 0 otherwise
+ */
+
 int is_prime(long n)
 {
 	long i;
