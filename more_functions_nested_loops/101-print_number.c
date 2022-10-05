@@ -10,14 +10,28 @@ int power_of(int a, int b);
 
 void print_number(int n)
 {
-	unsigned int i, digits;
+	int i, digits;
 
+	if (n == -2147483648)
+	{
+		_putchar('-');
+		n = 2147483647;
+		for (i = 9; i > 0; i--)
+		{
+			digits = n / power_of(10, i);
+			if (digits != 0)
+				_putchar(digits % 10 + '0');
+			if (i == 1)
+				_putchar(8 + '0');
+		}
+		return;
+	}
 	if (n < 0)
 	{
 		n *= -1;
 		_putchar('-');
 	}
-	for (i = 10; i > 0; i--)
+	for (i = 9; i > 0; i--)
 	{
 		digits = n / power_of(10, i);
 		if (digits != 0)
