@@ -11,7 +11,9 @@ void rev_string(char *s)
 	int i, len;
 	char c;
 
-	len = _strlen(s) - 1;
+	for (len = 0; *(s + len) != '\0'; len++)
+		continue;
+	len--;
 	for (i = 0; i < len / 2; i++)
 	{
 		c = *(s + i);
@@ -19,21 +21,3 @@ void rev_string(char *s)
 		*(s + len - i) = c;
 	}
 }
-
-
-/**
- * _strlen - calculates length of a string
- * @s: counts the characters in the array s
- *
- * Return: number of characters
- */
-
-int _strlen(char *s)
-{
-	int i;
-
-	for (i = 0; *(s + i) != '\0'; i++)
-		continue;
-	return (i);
-}
-
