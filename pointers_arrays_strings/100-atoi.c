@@ -11,7 +11,7 @@ int power_of(int a, int b);
 
 int _atoi(char *s)
 {
-	int i, digits = 0, result = 0;
+	int i, digits = 0, result = 0, semicolon = 0;
 
 	for (i = 0; s[i] != '\0'; i++)
 		continue;
@@ -20,13 +20,22 @@ int _atoi(char *s)
 	{
 		if (s[i - 1] >= 48 && s[i - 1] < 58)
 		{
-			result += power_of(10, digits) * (s[i - 1] - 48);
+			if (semicolon == 1)
+			{
+				result = 0;
+				digits = 0;
+			}
+			result -= power_of(10, digits) * (s[i - 1] - 48);
 			digits++;
+			semicolon = 0;
 		}
 		if (s[i - 1] == 45)
 			result *= -1;
+
+		if (s[i - 1] == 59)
+			semicolon = 1;
 	}
-	return (result);
+	return (-1 * result);
 }
 
 /**
