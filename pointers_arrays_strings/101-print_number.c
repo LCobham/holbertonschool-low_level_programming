@@ -11,35 +11,35 @@ int power_of(int a, int b);
 
 void print_number(int n)
 {
-	int digits, abs, print;
+	int i, digits, abs, print;
 
-	abs = n;
-	if (n < 0 && n != INT_MIN)
+	if (n == 0)
 	{
-		abs = -n;
+		_putchar('0');
+		return;
+	}
+	abs = n;
+	if (n < 0)
+	{
+		_putchar('-');
 		if (n == INT_MIN)
 			abs = INT_MAX;
-		_putchar('-');
+		else
+			abs = -n;
 	}
 
-	for (digits = 9; (abs / power_of(10, digits)) == 0; digits--)
-		if (digits == 1)
-			break;
+	for (digits = 10; abs / power_of(10, digits - 1) == 0; digits--)
+		continue;
 
-	for (digits++; digits > 0; digits--)
+	for (i = digits - 1; i >= 0; i--)
 	{
-		if (n == 0)
-			continue;
-		if (digits == 1 && n == INT_MIN)
+		print = (abs / power_of(10, i)) % 10;
+		if (n == INT_MIN && i == 1)
 			_putchar('8');
 		else
-		{
-			print = (abs % power_of(10, digits)) / power_of(10, digits - 1);
 			_putchar(print + '0');
-		}
 	}
-	if (n == 0)
-		_putchar('0');
+
 }
 
 /**
