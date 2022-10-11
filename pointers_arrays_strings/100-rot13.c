@@ -21,7 +21,7 @@ char *rot13(char *s)
 			{
 				s[i] = after[j];
 				i++;
-				j = 0;
+				j = -1;
 			}
 		}
 	}
