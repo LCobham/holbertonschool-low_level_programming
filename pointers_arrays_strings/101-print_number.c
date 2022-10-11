@@ -34,7 +34,7 @@ void print_number(int n)
 	for (i = digits - 1; i >= 0; i--)
 	{
 		print = (abs / power_of(10, i)) % 10;
-		if (n == INT_MIN && i == 1)
+		if (n == INT_MIN && i == 0)
 			_putchar('8');
 		else
 			_putchar(print + '0');
