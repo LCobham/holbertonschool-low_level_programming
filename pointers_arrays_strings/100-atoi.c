@@ -15,7 +15,7 @@ int _atoi(char *s)
 	int i, digits = 0, result = 0, semicolon = 0;
 
 	if (_strcmp(s, "-2147483648") == 0)
-		return(-2147483648);
+		return (-2147483648);
 	for (i = 0; s[i] != '\0'; i++)
 		continue;
 
