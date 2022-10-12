@@ -1,8 +1,5 @@
 #include "main.h"
 
-char *_strchr(char *s, char c);
-int n_occurrances(char *s, char c);
-
 /**
  * _strstr - locate first ocurrance of substr in str
  * @haystack: str
@@ -13,67 +10,24 @@ int n_occurrances(char *s, char c);
 
 char *_strstr(char *haystack, char *needle)
 {
-	int i, j;
-	int N = n_occurrances(haystack, needle[0]);
-	char *p = _strchr(haystack, needle[0]);
-	char *str;
+	int i, j, m;
 
-	for (i = 0; needle[i] != '\0'; i++)
-		continue;
-	i--;
+        if (needle[0] == '\0')
+                return (haystack);
 
-	for (; N > 0; N--)
-	{
-		str = p;
-		if (str == NULL)
-			return (NULL);
-		for (j = 0; str[j] == needle[j] && j < i; j++)
-			continue;
-		if (j == i)
-			return (str);
+        for (i = 0; needle[i] != '\0'; i++)
+                continue;
 
-		p = _strchr(str, needle[0]);
-	}
-	return (NULL);
-}
-
-
-/**
- * _strchr - finds the first occurrance of a char in str
- * @s: string
- * @c: char searched
- *
- * Return: pointer to first ocurrance or NULL if not found
- */
-
-char *_strchr(char *s, char c)
-{
-	int i;
-
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		if (s[i] == c)
-			return (&s[i]);
-	}
-	if (s[i] == c)
-		return (&s[i]);
-	return (NULL);
-}
-
-/**
- * n_occurrances - count num of times char appears in str
- * @s: str
- * @c: char
- *
- * Return: n of occurrances
- */
-
-int n_occurrances(char *s, char c)
-{
-	int i;
-
-	for (i = 0; s[i]; s[i] == c ? i++ : *s++)
-		continue;
-
-	return (i);
+        for (m = 0; haystack[m] != '\0'; m++)
+        {
+                if (haystack[m] == needle[0])
+                {
+                    for (j = 1; j < i; j++)
+                    {
+                        if (needle[j] == haystack[m + j])
+                            return (&haystack[m]);
+                    }
+                }
+        }
+        return (NULL);	
 }
