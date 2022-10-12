@@ -14,26 +14,19 @@ int n_occurrances(char *s, char c);
 char *_strstr(char *haystack, char *needle)
 {
 	int i, j;
-	int N = n_occurrances(haystack, needle[0]);
 	char *p = _strchr(haystack, needle[0]);
-	char *str;
+
+	if (p == NULL)
+		return (NULL);
 
 	for (i = 0; needle[i] != '\0'; i++)
 		continue;
 	i--;
 
-	for (; N > 0; N--)
-	{
-		str = p;
-		if (str == NULL)
-			return (NULL);
-		for (j = 0; str[j] == needle[j] && j < i; j++)
-			continue;
-		if (j == i)
-			return (str);
-
-		p = _strchr(str, needle[0]);
-	}
+	for (j = 0; p[j] == needle[j] && j < i; j++)
+		continue;
+	if (j == i)
+		return (p);
 	return (NULL);
 }
 
