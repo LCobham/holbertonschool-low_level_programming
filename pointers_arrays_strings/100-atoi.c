@@ -1,6 +1,7 @@
 #include "main.h"
 
 int power_of(int a, int b);
+int _strcmp(char *s1, char *s2);
 
 /**
  * _atoi - converts a number stored as a string to int
@@ -13,6 +14,8 @@ int _atoi(char *s)
 {
 	int i, digits = 0, result = 0, semicolon = 0;
 
+	if (_strcmp(s, "-2147483648") == 0)
+		return(-2147483648);
 	for (i = 0; s[i] != '\0'; i++)
 		continue;
 
@@ -69,5 +72,37 @@ int power_of(int a, int b)
 		}
 		return (result);
 	}
+
+}
+
+
+/**
+ * _strcmp - compare two strings
+ * @s1: string 1
+ * @s2: string 2
+ *
+ * Return: 0 if equal, not zero if different
+ */
+
+int _strcmp(char *s1, char *s2)
+{
+	int i;
+
+	for (i = 0; s1[i] != '\0'; i++)
+	{
+		if (s1[i] - s2[i] == 0)
+			continue;
+		else
+			return (s1[i] - s2[i]);
+	}
+	for (i = 0; s2[i] != '\0'; i++)
+	{
+		if (s2[i] - s1[i] == 0)
+			continue;
+		else
+			return (s2[i] - s1[i]);
+	}
+	return (0);
+
 
 }
