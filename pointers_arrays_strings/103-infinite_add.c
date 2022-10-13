@@ -26,8 +26,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		r = 0;
 		return (r);
 	}
-	r[k] = '\0';
-	for  (m = 0, carry = 0, i--, j--; k - 1 - m >= 0;)
+	r[k - 1] = '\0';
+	for  (m = 0, carry = 0, i--, j--; k - 1 - m > 0;)
 	{
 		x = carry;
 		if (i >= 0)
@@ -43,16 +43,16 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		if (s1 + s2 + x - '0' > '9')
 		{
 			carry = 1;
-			r[k - 1 - m] = s1 + s2 + x - 10 - '0';
+			r[k - m - 2] = s1 + s2 + x - 10 - '0';
 		}
 		else
 		{
 			carry = 0;
-			r[k - 1 - m] = s1 + s2 + x - '0';
+			r[k - m - 2] = s1 + s2 + x - '0';
 		}
 		m++;
-		s1 = 0;
-		s2 = 0;
+		s1 = '0';
+		s2 = '0';
 	}
 	return (r);
 }
