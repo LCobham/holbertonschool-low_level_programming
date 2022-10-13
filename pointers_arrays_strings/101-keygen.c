@@ -11,7 +11,7 @@
 
 int main(void)
 {
-	char password[11];
+	char password[10];
 	time_t t;
 
 	srand((unsigned) time(&t));
@@ -26,7 +26,6 @@ int main(void)
 	password[7] = rand() % 46 + 32;
 	password[8] = rand() % 50 + 32;
 	password[9] = '2';
-	password[10] = '\0';
 
 	printf("%s\n", password);
 	return (0);
