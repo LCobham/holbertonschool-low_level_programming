@@ -48,13 +48,15 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		else
 		{
 			carry = 0;
-			if (i >= 0 && j >= 0 && x != 0)
-				r[k - m - 2] = s1 + s2 + x - '0';
+			r[k - m - 2] = s1 + s2 + x - '0';
 		}
 		m++;
 		s1 = '0';
 		s2 = '0';
 	}
+	if (r[0] == '0')
+		for (m = 0; m < k - 1; m++)
+			r[m] = r[m + 1];
 	return (r);
 }
 
