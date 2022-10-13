@@ -41,7 +41,7 @@ void print_buffer(char *b, int size)
 		spaces(x);
 		while (x--)
 		{
-			if (b[j] >= 32 && b[j] <= 126)
+			if (b[i - x - 1] >= 32 && b[i - x - 1] <= 126)
 				printf("%c", b[i - x - 1]);
 			else
 				printf(".");
