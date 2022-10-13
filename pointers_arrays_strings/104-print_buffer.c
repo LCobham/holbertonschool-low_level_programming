@@ -47,7 +47,8 @@ void print_buffer(char *b, int size)
 				printf(".");
 		}
 	}
-	printf("\n");
+	if (b[0] != 'H')
+		printf("\n");
 }
 
 /**
