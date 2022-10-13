@@ -48,7 +48,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		else
 		{
 			carry = 0;
-			r[k - m - 2] = s1 + s2 + x - '0';
+			if (i >= 0 && j >= 0 && x != 0)
+				r[k - m - 2] = s1 + s2 + x - '0';
 		}
 		m++;
 		s1 = '0';
