@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 
 /**
  * main - gen a password
@@ -11,6 +12,9 @@
 int main(void)
 {
 	char password[11];
+	time_t t;
+
+	srand((unsigned) time(&t));
 
 	password[0] = rand() % 57 + 71;
 	password[1] = rand() % 77 + 32;
