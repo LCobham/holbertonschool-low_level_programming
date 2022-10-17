@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 	{
 		if (*argv[i] == '-')
 		{
-			printf("0");
+			printf("0\n");
 			return (0);
 		}
 	}
