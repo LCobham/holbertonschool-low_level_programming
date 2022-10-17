@@ -24,8 +24,8 @@ int main(int argc, char *argv[])
 	{
 		if (*argv[i] == '-')
 		{
-			printf("Error\n");
-			return (1);
+			printf("0");
+			return (0);
 		}
 	}
 	remaining = atoi(argv[1]);
