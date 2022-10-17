@@ -2,6 +2,8 @@
 
 /**
  * main - prints the name of the executable
+ * @argc: num of args passed in the command line
+ * @argv: array of strings
  *
  * Return: 0 on success
  */
