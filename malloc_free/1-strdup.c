@@ -16,7 +16,7 @@ char *_strdup(char *str)
 		continue;
 
 	p = malloc(len + 1);
-	if (p == NULL || *str == NULL)
+	if (p == NULL || str == NULL)
 		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
 		p[i] = str[i];
