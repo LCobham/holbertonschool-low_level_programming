@@ -4,13 +4,14 @@
  * string_nconcat - concatenate two strings
  * @s1: string 1
  * @s2: string 2
+ * @n: max number of bytes to copy from s2
  *
  * Return: pointer to new space in memory w concatenated str
  */
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int l1, l2, i, N = n;
+	int i, j, m;
 	char *p;
 
 	if (s1 == NULL)
@@ -18,23 +19,19 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s2 == NULL)
 		return (string_nconcat(s1, "", n));
 
-	for (l1 = 0; s1[l1] != '\0'; l1++)
+	for (i = 0; s1[i] != '\0'; i++)
 		continue;
-	for (l2 = 0; s2[l2] != '\0'; l2++)
+	for (j = 0; s2[j] != '\0'; j++)
 		continue;
 
-	if (n > l2)
-		N = l2;
-
-	p = malloc(l1 + 1 + n);
+	p = malloc(i + j + 1);
 	if (p == NULL)
 		return (NULL);
 
-	for (i = 0; i < l1; i++)
-		p[i] = s1[i];
-	for (i = 0; i < N; i++)
-		p[l1 + i] = s2[i];
-
-	p[l1 + 1 + N] = '\0';
+	for (m = 0; m < i; m++)
+		p[m] = s1[m];
+	for (m = 0; m < j && m < (int) n; m++)
+		p[i + m] = s2[m];
+	p[i + m] = '\0';
 	return (p);
 }
