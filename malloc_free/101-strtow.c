@@ -22,6 +22,8 @@ char **strtow(char *str)
 		else if ((str[i] > 32 && str[i] < 127) && (i == 0 || str[i - 1] == ' '))
 			wc++;
 	}
+	if (wc == 0)
+		return (NULL)
 	p = malloc((wc + 1) * sizeof(char *));
 	if (p == NULL)
 		return (NULL);
