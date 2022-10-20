@@ -1,5 +1,7 @@
 #include "main.h"
 
+int min(int a, int b);
+
 /**
  * string_nconcat - concatenate two strings
  * @s1: string 1
@@ -24,7 +26,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (j = 0; s2[j] != '\0'; j++)
 		continue;
 
-	p = malloc(i + j + 1);
+	p = malloc(i + min(j, n) + 1);
 	if (p == NULL)
 		return (NULL);
 
@@ -34,4 +36,19 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		p[i + m] = s2[m];
 	p[i + m] = '\0';
 	return (p);
+}
+
+/**
+ * min - return the min of two ints
+ * @a: int
+ * @b: int
+ *
+ * Return: min(a, b)
+ */
+
+int min(int a, int b)
+{
+	if (a < b)
+		return (a);
+	return (b);
 }
