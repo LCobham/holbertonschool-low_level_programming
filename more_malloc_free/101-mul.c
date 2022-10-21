@@ -96,13 +96,13 @@ char *infinite_add(char *n1, char *n2)
 	j = strlen(n2);
 
 	if (i < j)
-		k = j;
+		k = j + 2;
 	else 
-		k = i;	
+		k = i + 2;	
 
-	r = malloc(k + 2);
+	r = malloc(k - 1);
 	r[k - 1] = '\0';
-	for  (m = 0, carry = 0, i--, j--; k - 1 - m > 0;)
+	for  (m = 0, carry = 0, i--, j--; m < k - 1;)
 	{
 		x = carry;
 		if (i >= 0)
