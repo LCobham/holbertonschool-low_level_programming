@@ -3,6 +3,8 @@
 #include <string.h>
 
 char *mult_str(char *str1, char *str2);
+char *infinite_add(char *n1, char *n2);
+char *sum_array_str(char **array);
 
 /**
  * main - multiply two positive numbers and print
@@ -133,4 +135,28 @@ char *infinite_add(char *n1, char *n2)
 		for (m = 0; m < k - 1; m++)
 			r[m] = r[m + 1];
 	return (r);
+}
+
+
+/**
+ * sum_array_str - sum numbers stored as strings in an array ending in NULL
+ * @array: pointer to array of str (pointer pointer). Ends in NULL
+ *
+ * Return: one single string with result of sum. Result must be freed after it's used.
+ */
+
+char *sum_array_str(char **array)
+{
+	int i;
+	char *result, *tmp;
+	char start[] = "0";
+
+	for (i = 0, result = start; array[i] != NULL; i++)
+	{
+		tmp = result;
+		result = infinite_add(tmp, array[i]);
+		if (tmp != start)
+			free(tmp);
+	}
+	return (result);
 }
