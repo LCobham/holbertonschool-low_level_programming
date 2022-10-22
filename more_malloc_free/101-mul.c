@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 	else
 		printf("%s\n", result);
 	free(result);
-	return (0);
+	exit(0);
 }
 
 /**
