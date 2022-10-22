@@ -53,7 +53,7 @@ int main(int argc, char **argv)
 char *mult_str(char *s1, char *s2)
 {
 	int i, j, L1, L2, nchars, k, c;
-	char *p, *q;
+	char *p;
 
 	L1 = strlen(s1);
 	L2 = strlen(s2);
