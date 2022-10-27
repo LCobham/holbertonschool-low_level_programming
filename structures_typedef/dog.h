@@ -14,5 +14,5 @@ struct dog
 	char *owner;
 	float age;
 };
-#endif
 void init_dog(struct dog *d, char *name, float age, char *owner);
+#endif
