@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "3-calc.h"
 
 /**
@@ -11,7 +12,7 @@
 
 int main(int argc, char **argv)
 {
-	int x, y, i;
+	int x, y;
 	int (*f)(int, int);
 
 	if (argc != 4)
@@ -20,9 +21,7 @@ int main(int argc, char **argv)
 		exit(98);
 	}
 
-	for (i = 0; argv[2][i] != '\0'; i++)
-		continue;
-	if (i != 1)
+	if (strlen(argv[2]) != 1)
 	{
 		printf("Error\n");
 		exit(99);
