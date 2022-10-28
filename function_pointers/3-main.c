@@ -11,13 +11,21 @@
 
 int main(int argc, char **argv)
 {
-	int x, y;
+	int x, y, i;
 	int (*f)(int, int);
 
 	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
+	}
+
+	for (i = 0; argv[2][i] != '\0'; i++)
+		continue;
+	if (i != 1)
+	{
+		printf("Error\n");
+		exit(99);
 	}
 
 	x = atoi(argv[1]);
