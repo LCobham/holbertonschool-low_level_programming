@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "3-cal.h"
+#include "3-calc.h"
 
 /**
  * main - a calculator. Usage: ./calc int operator int
