@@ -2,15 +2,24 @@
 #include <stdlib.h>
 
 /**
- * free_listint - free a linked list of ints
- * @head: head of linked list
+ * free_listint2 - free a linked list of ints, set head to NULL
+ * @head: ptr to head of linked list
  *
  * return: void
  */
 
 void free_listint2(listint_t **head)
 {
-	listint_t *tmp = *head, *i = NULL;
+	listint_t *tmp, *i = NULL;
+	char *s = "Freed !\n";
+
+	if (head == NULL)
+	{
+		write(1, s, 8);
+		return;
+	}
+	else
+		tmp = *head;
 
 	for (; tmp != NULL;)
 	{
