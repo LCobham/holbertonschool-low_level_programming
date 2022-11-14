@@ -11,16 +11,11 @@
 void free_listint2(listint_t **head)
 {
 	listint_t *tmp, *i = NULL;
-	char *s = "Freed !\n";
 
 	if (head == NULL)
-	{
-		write(1, s, 8);
 		return;
-	}
-	else
-		tmp = *head;
 
+	tmp = *head;
 	for (; tmp != NULL;)
 	{
 		i = tmp;
