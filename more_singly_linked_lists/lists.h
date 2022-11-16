@@ -19,6 +19,19 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
+/**
+ * check_loop_t - struch to check if there is a loop in linked list
+ * @current: pointer to current listint_t
+ * @next: pointer to next node
+ */
+
+typedef struct check_loop_t
+{
+	const listint_t *current;
+	struct check_loop_t *next;
+} check_loop;
+
+
 int _putchar(char c);
 size_t print_listint(const listint_t *h);
 size_t listint_len(const listint_t *h);
@@ -32,5 +45,6 @@ int sum_listint(listint_t *head);
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n);
 int delete_nodeint_at_index(listint_t **head, unsigned int index);
 listint_t *reverse_listint(listint_t **head);
+size_t print_listint_safe(const listint_t *head);
 
 #endif
