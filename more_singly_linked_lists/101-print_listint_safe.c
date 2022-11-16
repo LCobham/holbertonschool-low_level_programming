@@ -17,10 +17,9 @@ size_t print_listint_safe(const listint_t *head)
 
 	if (head == NULL)
 		return (counter);
-
 	for (tmp = head; tmp; tmp = tmp->next)
 	{
-		for(i = new_head; i; i = i->next)
+		for (i = new_head; i; i = i->next)
 		{
 			if (i->current == tmp)
 			{
@@ -28,7 +27,6 @@ size_t print_listint_safe(const listint_t *head)
 				goto out_of_loop;
 			}
 		}
-
 		new = malloc(sizeof(check_loop));
 		if (new == NULL)
 		{
@@ -45,7 +43,6 @@ size_t print_listint_safe(const listint_t *head)
 		printf("[%p] %d\n", (void *)tmp, tmp->n);
 		counter++;
 	}
-
 out_of_loop:
 	for (i = new_head; i;)
 	{
