@@ -12,7 +12,6 @@
 
 int main(int argc, char **argv)
 {
-	int i;
 	char *ELF_file;
 
 	if (argc != 2)
@@ -21,6 +20,7 @@ int main(int argc, char **argv)
 		exit(97);
 	}
 	ELF_file = argv[1];
+	printf("This is the file to print header of %s\n", ELF_file);
 
 	return (0);
 }
