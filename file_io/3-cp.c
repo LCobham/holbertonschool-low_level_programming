@@ -51,14 +51,14 @@ int main(int argc, char **argv)
 		count = read(fd_src, buf, BUF_SIZE);
 		if (count == -1)
 		{
-			dprintf(STDERR_FILENO, "read() returned error\n");
-			exit(101);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
 		}
 		write_check = write(fd_dest, buf, count);
 		if (count != write_check)
 		{
-			dprintf(STDERR_FILENO, "write() didn't write expected n of bytes\n");
-			exit(101);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			exit(99);
 		}
 	}
 	free(buf);

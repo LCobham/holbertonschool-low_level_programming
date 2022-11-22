@@ -10,7 +10,6 @@ $(NAME): $(SRC)
 
 
 run: 
-	./cp test test_cpy
-	ls -l test
-	ls -l test_cpy
-	cat test_cpy
+	./cp textfile_2 textfile_2_copy
+	echo $$?
+	ls -l textfile_2_copy
