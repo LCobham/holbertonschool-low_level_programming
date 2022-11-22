@@ -25,14 +25,14 @@ int main(int argc, char **argv)
 		exit(97);
 	}
 
-	fd_src = open(argv[1], O_RDWR);
+	fd_src = open(argv[1], O_RDONLY);
 	if (fd_src == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 
-	fd_dest = open(argv[2], O_RDWR | O_CREAT | O_TRUNC, file_mode);
+	fd_dest = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, file_mode);
 	if (fd_dest == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
