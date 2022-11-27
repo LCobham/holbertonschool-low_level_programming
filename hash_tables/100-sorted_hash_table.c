@@ -119,11 +119,14 @@ int insert_in_order(shash_node_t *node, shash_table_t *ht)
 	{
 		if (strcmp(node->key, tmp->key) < 0)
 		{
-			if (ht->shead == tmp) /*If on 1st position we change shead*/
-				ht->shead = node;
 			node->snext = tmp;
 			node->sprev = tmp->sprev;
 			tmp->sprev = node;
+			if (ht->shead == tmp) /*If on 1st position we change shead*/
+				ht->shead = node;
+			else
+				node->sprev->snext = node;
+
 			return (1);
 		}
 		tprev = tmp;
