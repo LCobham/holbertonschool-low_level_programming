@@ -56,7 +56,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 
 	if (!ht || !key)
 		return (0);
-	
+
 	if (ht->array[index])
 	{
 		for (tmp = ht->array[index]; tmp; tmp = tmp->next)
@@ -104,8 +104,8 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 
 int insert_in_order(shash_node_t *node, shash_table_t *ht)
 {
-	shash_node_t *tmp = NULL;
-	
+	shash_node_t *tmp = NULL, *tprev = NULL;
+
 	/* First check if table is empty (meaning shead && stail == NULL) */
 	if (!ht->shead) /* If table is empty, insert in first position */
 	{
@@ -115,7 +115,7 @@ int insert_in_order(shash_node_t *node, shash_table_t *ht)
 		ht->stail = node;
 		return (1);
 	}
-	for (tmp = ht->shead; tmp->snext; tmp = tmp->snext)
+	for (tmp = ht->shead; tmp; tmp = tmp->snext)
 	{
 		if (strcmp(node->key, tmp->key) < 0)
 		{
@@ -126,11 +126,11 @@ int insert_in_order(shash_node_t *node, shash_table_t *ht)
 			tmp->sprev = node;
 			return (1);
 		}
+		tprev = tmp;
 	}
-	/* If node hasn't been inserted yet, it means that tmp->snext == NULL */
 	node->snext = NULL;
-	node ->sprev = tmp;
-	tmp->snext = node;
+	node->sprev = tprev;
+	tprev->snext = node;
 	ht->stail = node;
 	return (1);
 }
@@ -194,16 +194,16 @@ void shash_table_print(const shash_table_t *ht)
 
 void shash_table_print_rev(const shash_table_t *ht)
 {
-        shash_node_t *tmp = NULL;
- 
-        printf("{");
-        for (tmp = ht->stail; tmp; tmp = tmp->sprev)
-        {
-                printf("\'%s\': \'%s\'", tmp->key, tmp->value);
-                if (tmp->sprev)
-                        printf(", ");
-        }
-        printf("}\n");
+	shash_node_t *tmp = NULL;
+
+	printf("{");
+	for (tmp = ht->stail; tmp; tmp = tmp->sprev)
+	{
+		printf("\'%s\': \'%s\'", tmp->key, tmp->value);
+		if (tmp->sprev)
+			printf(", ");
+	}
+	printf("}\n");
 }
 
 
