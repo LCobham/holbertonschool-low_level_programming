@@ -1,6 +1,7 @@
 #include "hash_tables.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 int insert_in_order(shash_node_t *node, shash_table_t *ht);
 
@@ -118,7 +119,7 @@ int insert_in_order(shash_node_t *node, shash_table_t *ht)
 	{
 		if (strcmp(node->key, tmp->key) < 0)
 		{
-			if (ht->shead == tmp)
+			if (ht->shead == tmp) /*If on 1st position we change shead*/
 				ht->shead = node;
 			node->snext = tmp;
 			node->sprev = tmp->sprev;
@@ -132,4 +133,99 @@ int insert_in_order(shash_node_t *node, shash_table_t *ht)
 	tmp->snext = node;
 	ht->stail = node;
 	return (1);
+}
+
+
+
+/**
+ * shash_table_get - retrieve the value associated to a key
+ * @ht: sorted hash table
+ * @key: key we're searching for
+ *
+ * Return: associated value
+ */
+
+char *shash_table_get(const shash_table_t *ht, const char *key)
+{
+	shash_node_t *tmp = NULL;
+	unsigned long int index = key_index((const unsigned char *)key, ht->size);
+
+	if (!ht)
+		return (NULL);
+
+	for (tmp = ht->array[index]; tmp; tmp = tmp->next)
+	{
+		if (!strcmp(key, tmp->key))
+			return (tmp->value);
+	}
+	return (NULL);
+}
+
+
+
+/**
+ * shash_table_print - print sorted hash table in order
+ * @ht: sorted hash table
+ *
+ * Return: void
+ */
+
+void shash_table_print(const shash_table_t *ht)
+{
+	shash_node_t *tmp = NULL;
+
+	printf("{");
+	for (tmp = ht->shead; tmp; tmp = tmp->snext)
+	{
+		printf("\'%s\': \'%s\'", tmp->key, tmp->value);
+		if (tmp->snext)
+			printf(", ");
+	}
+	printf("}\n");
+}
+
+
+/**
+ * shash_table_print_rev - print sorted hash table in reverse order
+ * @ht: sorted hash table
+ *
+ * Return: void
+ */
+
+void shash_table_print_rev(const shash_table_t *ht)
+{
+        shash_node_t *tmp = NULL;
+ 
+        printf("{");
+        for (tmp = ht->stail; tmp; tmp = tmp->sprev)
+        {
+                printf("\'%s\': \'%s\'", tmp->key, tmp->value);
+                if (tmp->sprev)
+                        printf(", ");
+        }
+        printf("}\n");
+}
+
+
+/**
+ * shash_table_delete - delete sorted hash table
+ * @ht: sorted hash table
+ *
+ * Return: void
+ */
+
+void shash_table_delete(shash_table_t *ht)
+{
+	shash_node_t *tmp, *tmp2;
+
+	for (tmp = ht->shead; tmp;)
+	{
+		tmp2 = tmp;
+		tmp = tmp2->snext;
+		free(tmp2->key);
+		free(tmp2->value);
+		free(tmp2);
+	}
+	free(ht->array);
+	free(ht);
 }
