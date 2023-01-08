@@ -38,7 +38,7 @@ int exponential_search(int *array, size_t size, int value)
 		printf("Value found between indexes [%u] and [%u]\n", bound / 2, bound - 1);
 		return (BinarySearch(array, bound / 2, bound - 1, value));
 	}
-	printf("Value found between indexed [%u] and [%u]\n", bound / 2, bound);
+	printf("Value found between indexes [%u] and [%u]\n", bound / 2, bound);
 	return (BinarySearch(array, bound / 2, bound, value));
 }
 
