@@ -39,7 +39,7 @@ int AdvancedBinary(int *array, int lo, int hi, int value)
 
 	i = (lo + hi) / 2;
 	if (array[i] > value)
-		return (AdvancedBinary(array, lo, i - 1, value));
+		return (AdvancedBinary(array, lo, i, value));
 
 	if (array[i] < value)
 		return (AdvancedBinary(array, i + 1, hi, value));
