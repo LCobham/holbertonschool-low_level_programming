@@ -13,13 +13,22 @@ int exponential_search(int *array, size_t size, int value)
 {
 	unsigned int bound = 1;
 
-	if (!array)
+	if (!array || size < 1)
 		return (-1);
 
+	if (size == 1)
+	{
+		printf("Value checked array[%u] = [%d]\n", 0, array[0]);
+		if (value == array[0])
+			return (0);
+		return (-1);
+	}
 	while (value > array[bound] && bound < size)
 	{
 		printf("Value checked array[%u] = [%d]\n", bound, array[bound]);
 		bound *= 2;
+		if (bound >= size)
+			break;
 	}
 	if (bound > size)
 		return (-1);
